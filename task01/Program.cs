@@ -9,3 +9,67 @@
 // 7 4 2 1
 // 9 5 3 2
 // 8 4 4 2
+
+int GetNumber(string message)
+{
+    Console.WriteLine(message);
+    return int.Parse(Console.ReadLine()!);
+}
+
+int[,] FillArray(int row, int column, int min, int max)
+{
+    int[,] array = new int[row, column];
+    Random rnd = new Random()!;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+        {
+            array[i, j] = rnd.Next(min, max);
+        }
+    }
+    return array;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] SortArray(int[,] array)
+{
+    for (int k = 1; k < array.GetLength(0); k++) // k = 0
+    {
+        for (int i = 0; i < array.GetLength(0); i++) // - 1 - k
+        {
+            for (int j = 0; j < array.GetLength(1) - k; j++)
+            {
+                if (array[i, j] < array[i, j + 1])
+                {
+                    int temp = array[i, j];
+                    array[i, j] = array[i, j + 1];
+                    array[i, j + 1] = temp;
+                }
+            }
+        }
+    }
+    return array;
+}
+
+
+int row = GetNumber("Введите длину строки массива: ");
+int column = GetNumber("Введите длину столбца массива: ");
+int min = GetNumber("Введите наименьшее значение массива: ");
+int max = GetNumber("Введите наибольшее значение массива: ");
+Console.WriteLine();
+int[,] array = FillArray(row, column, min, max);
+PrintArray(array);
+Console.WriteLine();
+int[,] resArray = SortArray(array);
+PrintArray(resArray);
