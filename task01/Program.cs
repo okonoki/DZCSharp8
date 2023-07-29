@@ -62,7 +62,6 @@ int[,] SortArray(int[,] array)
     return array;
 }
 
-
 int row = GetNumber("Введите длину строки массива: ");
 int column = GetNumber("Введите длину столбца массива: ");
 int min = GetNumber("Введите наименьшее значение массива: ");
