@@ -6,7 +6,6 @@
 // 11 16 15 06
 // 10 09 08 07
 
-
 int GetNumber(string message)
 {
     Console.WriteLine(message);
@@ -26,6 +25,7 @@ int[,] FillArray(int row, int column)
     while (k <= row * column)
     {
         array[i, j] = k;
+
         if (i == iBegin && j < column - 1 - jEnd) j++;
         else if (j == column - 1 - jEnd && i < row - 1 - iEnd) i++;
         else if (i == row - 1 - jEnd && j > jBegin) j--;
@@ -38,6 +38,7 @@ int[,] FillArray(int row, int column)
             ++jBegin;
             ++jEnd;
         }
+        
         k++;
     }
     return array;
