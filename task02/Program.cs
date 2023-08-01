@@ -43,7 +43,7 @@ void PrintArray(int[,] array)
 int[] SumArray(int[,] array)
 {
     int sum = 0;
-    int[] sumStr = new int[array.GetLength(0)];
+    int[] sumArr = new int[array.GetLength(0)];
     int index = 0;
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -51,11 +51,11 @@ int[] SumArray(int[,] array)
         {
             sum += array[i, j];
         }
-        sumStr[index] = sum;
+        sumArr[index] = sum;
         sum = 0;
         index++;
     }
-    return sumStr;
+    return sumArr;
 }
 
 void PrintData(int[] inArray)
