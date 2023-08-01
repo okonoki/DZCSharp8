@@ -20,9 +20,9 @@ int[,] FillArray(int row, int column, int min, int max)
 {
     int[,] array = new int[row, column];
     Random rnd = new Random()!;
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < column; j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
             array[i, j] = rnd.Next(min, max);
         }
@@ -44,11 +44,11 @@ void PrintArray(int[,] array)
 
 int[,] SortArray(int[,] array)
 {
-    for (int k = 1; k < array.GetLength(0); k++) // k = 0
+    for (int k = 1; k < array.GetLength(1); k++) // k = 0
     {
-        for (int i = 0; i < array.GetLength(0); i++) // - 1 - k
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            for (int j = 0; j < array.GetLength(1) - k; j++)
+            for (int j = 0; j < array.GetLength(1) - k; j++) // - 1 - k
             {
                 if (array[i, j] < array[i, j + 1])
                 {
@@ -62,8 +62,8 @@ int[,] SortArray(int[,] array)
     return array;
 }
 
-int row = GetNumber("Введите длину строки массива: ");
-int column = GetNumber("Введите длину столбца массива: ");
+int row = GetNumber("Введите число строк массива: ");
+int column = GetNumber("Введите число столбцов массива: ");
 int min = GetNumber("Введите наименьшее значение массива: ");
 int max = GetNumber("Введите наибольшее значение массива: ");
 Console.WriteLine();
