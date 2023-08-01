@@ -59,6 +59,6 @@ void PrintArray(int[,] array)
 
 int row = GetNumber("Введите количество строк в массиве: ");
 int column = GetNumber("Введите количество столбцов в массиве: ");
-
+Console.WriteLine();
 int[,] array = FillArray(row, column);
 PrintArray(array);
